@@ -1,163 +1,134 @@
-
-# Proyecto LTI - Historias de Usuario, Backlog, Tickets Técnicos y Estimación
-
-## ✅ Punto 1: Historias de Usuario basadas en el PRD
-
-### Historia de Usuario 1: Registro Manual de Candidatos en el Sistema
-
-**Título de la Historia de Usuario:**  
-Como Reclutador,  
-quiero registrar manualmente perfiles de candidatos en el sistema,  
-para que pueda comenzar procesos de selección incluso sin haber publicado la vacante en ningún portal.
-
-**Criterios de Aceptación:**
-
-- El sistema debe ofrecer un formulario para crear un nuevo perfil de candidato desde cero.
-- El reclutador debe poder adjuntar el CV del candidato y añadir información clave: nombre, email, experiencia, habilidades, comentarios internos, etc.
-- El CV debe ser parseado automáticamente para extraer datos estructurados básicos.
-- El candidato creado debe poder asociarse inmediatamente a una oferta de trabajo activa o futura.
-- El perfil debe quedar disponible en la base de talento de la empresa para futuras búsquedas y seguimiento.
-
-**Notas Adicionales:**
-
-- Esta funcionalidad permite registrar candidatos referenciados, conocidos en eventos, recibidos por email o encontrados en LinkedIn fuera del sistema.
-- El formulario debe ser accesible desde el módulo de “Candidatos” o desde una vacante específica.
-
-**Historias de Usuario Relacionadas:**
-
-- Asociación de candidatos a una vacante.
-- Evaluación colaborativa del candidato.
-- Consulta y filtrado de la base de talento.
+# LTI Project – Historias de Usuario y Planificación Inicial
 
 ---
 
-### Historia de Usuario 2: Consulta Básica de Candidatos por Filtros
+## ✅ Punto 1: Historias de Usuario Iniciales para el Proyecto LTI
+
+### 🔹 Historia 1: Creación de Vacantes
 
 **Título de la Historia de Usuario:**  
-Como Reclutador,  
-quiero poder buscar candidatos existentes en la base de datos usando filtros simples,  
-para que pueda identificar rápidamente perfiles relevantes sin tener que revisar uno por uno.
+Creación estructurada y centralizada de vacantes
+
+**Como** reclutador,  
+**quiero** poder crear ofertas de trabajo mediante formularios estructurados,  
+**para que** pueda publicar fácilmente vacantes con información clara y consistente.
 
 **Criterios de Aceptación:**
 
-- El sistema debe mostrar una lista de todos los candidatos registrados (manual o automáticamente).
-- Se debe poder aplicar filtros por campos como: puesto deseado, experiencia previa, tecnologías clave, fecha de alta o estado.
-- Los resultados deben poder ordenarse por fecha de registro o nombre.
-- El usuario debe poder acceder al perfil completo del candidato desde los resultados.
+- El sistema debe permitir crear una oferta con campos como título, descripción, requisitos, tipo de contrato, etc.
+- El sistema debe permitir guardar una vacante como borrador antes de publicarla.
+- El sistema debe validar los campos obligatorios antes de permitir la publicación.
 
-**Notas Adicionales:**
+**Notas Adicionales:**  
+Esta historia habilita la funcionalidad básica del sistema. No incluye publicación en canales externos (eso está en otra historia).
 
-- Este MVP no requiere recomendación automática por IA, solo búsqueda básica.
-- En el futuro se podrá añadir ranking por “matching” o sugerencias inteligentes.
-
-**Historias de Usuario Relacionadas:**
-
-- Registro manual de candidatos.
-- Asociación de candidatos a procesos activos.
-- Evaluación posterior de candidatos.
+**Historias de Usuario Relacionadas:**  
+- Publicación multicanal de vacantes  
+- Edición y seguimiento de vacantes activas  
 
 ---
 
-## ✅ Punto 2: Backlog de Producto (Revisado y Ampliado)
+### 🔹 Historia 3: Registro de Candidaturas
 
-### 🎯 Metodología de Priorización: MoSCoW + Riesgo/Oportunidad
+**Título de la Historia de Usuario:**  
+Recepción y visualización de candidaturas
 
-| Prioridad | Historia de Usuario | Descripción breve | MoSCoW | Valor | Complejidad | Justificación |
-|----------|---------------------|-------------------|--------|-------|-------------|----------------|
-| 🥇 1 | **Creación de Vacantes Manualmente** | Permite a un reclutador crear una oferta de trabajo sin necesidad de publicarla externamente. | Must | Alta | Media | Es la base para poder asociar candidatos a un proceso, aunque el foco inicial no sea la publicación. |
-| 🥈 2 | **Registro Manual de Candidatos** | Permite ingresar perfiles en el sistema desde fuera del flujo tradicional. | Must | Alta | Media | Llena el sistema de contenido valioso desde el inicio sin necesidad de integraciones externas. |
-| 🥉 3 | **Consulta Básica de Candidatos** | Visualización y búsqueda por filtros simples (nombre, puesto, habilidades, etc.). | Must | Alta | Baja | Hace operativa la base de talento. Es esencial para no perder el valor del registro. |
-| 4 | **Asociar candidato a vacante existente** | Vincular perfiles con procesos de selección activos o en preparación. | Should | Media | Baja | Permite estructurar flujos de selección, entrevistas y análisis más adelante. |
-| 5 | **Evaluación manual básica de candidatos** | Posibilidad de agregar feedback textual o calificaciones por parte del equipo. | Could | Media | Media | Imprescindible a futuro para decisiones compartidas, pero no bloqueante en el MVP. |
-| 6 | **Autoetiquetado por skills desde CV** | Asignación automática de etiquetas desde el parsing del CV. | Won’t (por ahora) | Alta | Alta | Alta complejidad técnica. Depende de procesamiento de lenguaje natural e IA no priorizado ahora. |
+**Como** reclutador,  
+**quiero** que las postulaciones a las vacantes se almacenen automáticamente en LTI,  
+**para que** pueda revisarlas centralizadas y sin duplicidades.
 
-### 🔄 Nueva Secuencia de Implementación por Sprints
+**Criterios de Aceptación:**
 
-| Iteración | Objetivo | Historias incluidas |
-|-----------|----------|----------------------|
-| Sprint 1 | **Base operativa del sistema** | Historia 1: Crear vacantes manuales |
-| Sprint 2 | **Captura de talento inicial** | Historia 2: Registro manual de candidatos |
-| Sprint 3 | **Consulta y organización básica** | Historia 3: Búsqueda de candidatos + Historia 4: Asociación con vacantes |
-| Sprint 4 | **Colaboración sobre candidatos** | Historia 5: Evaluación manual |
+- Alguien que se postule a una vacante (desde cualquier canal) debe crear automáticamente una candidatura.
+- El sistema debe asociar la candidatura con la vacante correspondiente.
+- El reclutador debe poder acceder al CV del candidato y datos parseados.
+
+**Notas Adicionales:**  
+La postulación externa puede simularse mediante carga manual en la fase 1. Se irá automatizando con integraciones posteriores.
+
+**Historias de Usuario Relacionadas:**  
+- Matching automático  
+- Recomendación de candidatos  
+
+---
+
+## ✅ Punto 2: Backlog de Producto
+
+### 📌 Metodología de Priorización: MoSCoW
+
+Se clasifican las historias en Must Have, Should Have, Could Have.
+
+---
+
+### 🎯 Backlog para Historia 1: Creación de Vacantes
+
+| ID | Título | Tipo | Prioridad | Descripción Corta |
+|----|--------|------|-----------|-------------------|
+| US-001 | Crear formulario de vacantes | User Story | Must Have | Permite introducir los campos principales: título, descripción, requisitos, ubicación, etc. |
+| US-002 | Validación de campos del formulario | User Story | Must Have | El sistema valida que los campos obligatorios estén completos. |
+| US-003 | Guardar como borrador | User Story | Should Have | El usuario puede guardar una vacante sin publicarla. |
+| US-004 | Editar vacante existente | User Story | Should Have | El reclutador puede reabrir una vacante y editar campos antes de publicarla. |
+| US-005 | Asistente IA de descripción | User Story | Could Have | El sistema sugiere contenido en base a roles similares. |
+| US-006 | Plantillas de vacantes | User Story | Could Have | Posibilidad de reutilizar una vacante como plantilla para futuras. |
+
+---
+
+### 🎯 Backlog para Historia 3: Registro de Candidaturas
+
+| ID | Título | Tipo | Prioridad | Descripción Corta |
+|----|--------|------|-----------|-------------------|
+| US-010 | Registro automático de candidatura | User Story | Must Have | Toda postulación debe crear automáticamente una candidatura vinculada a una vacante. |
+| US-011 | Asociación de candidatura a la oferta correcta | User Story | Must Have | El sistema debe vincular la candidatura con la vacante que originó la postulación. |
+| US-012 | Visualización de perfil de candidato | User Story | Must Have | Los datos parseados del CV deben mostrarse junto a la candidatura. |
+| US-013 | Registro del canal de origen | User Story | Should Have | El sistema debe guardar de qué canal proviene la aplicación (LinkedIn, portal interno, etc.). |
+| US-014 | Carga manual de CVs | User Story | Could Have | Posibilidad de registrar candidatos recibidos por email o ferias. |
+| US-015 | Parseo automático de CV | User Story | Should Have | El sistema extrae datos clave del CV para mostrar un resumen rápido. |
 
 ---
 
 ## ✅ Punto 3: Tickets Técnicos Iniciales
 
-### 🧱 Módulo: Gestión de Vacantes (Sprint 1)
+### 🛠 Para Historia 1
 
-- **TICKET 1.1 – Backend: Modelo de datos y API de Vacante**  
-  Descripción: diseñar modelo de datos `Vacante` y exponer endpoints RESTful para CRUD.  
-  Justificación: base para todo el sistema.
+| Ticket ID | Título | Tipo | Descripción | Justificación |
+|-----------|--------|------|-------------|----------------|
+| DEV-001 | Crear entidad "JobOpening" en backend | Backend | Modelar en base de datos la entidad `Oferta`. | Fundacional. |
+| DEV-002 | API REST: Crear, editar y consultar vacantes | Backend | Endpoint `POST /job`, `GET /job/{id}`, `PUT /job/{id}`. | Necesario para integración. |
+| DEV-003 | Formulario UI de creación de vacantes | Frontend | Construir el formulario en la app web. | Interfaz principal. |
+| DEV-004 | Conexión frontend–backend para vacantes | Frontend | Llamadas a la API. | Persistencia real. |
+| DEV-005 | Modelo de permisos: validación de acceso por rol | Backend | Permisos para `Recruiter` y `Admin`. | Control de acceso. |
 
-- **TICKET 1.2 – Frontend: Formulario de creación de vacantes**  
-  Descripción: interfaz para crear ofertas internas.  
-  Justificación: primera pantalla operativa del sistema.
+### 🛠 Para Historia 3
 
-### 👤 Módulo: Gestión de Candidatos (Sprint 2)
-
-- **TICKET 2.1 – Backend: Modelo y API para candidatos**  
-  Descripción: entidad `Candidato`, subida de CV, parseo básico.  
-  Justificación: almacenamiento del perfil desde el día 1.
-
-- **TICKET 2.2 – Frontend: Formulario de alta de candidatos**  
-  Descripción: interfaz con carga de CV y campos clave.
-
-### 🔍 Módulo: Búsqueda de candidatos (Sprint 3)
-
-- **TICKET 3.1 – Backend: Endpoint de búsqueda y filtros básicos**  
-  Descripción: búsqueda en base de candidatos por campos clave.
-
-- **TICKET 3.2 – Frontend: Lista y búsqueda de candidatos**  
-  Descripción: listado con filtros rápidos y navegación.
-
-### 🔗 Módulo: Asociación de Candidatos a Vacantes (Sprint 3)
-
-- **TICKET 4.1 – Backend: Vinculación candidato ↔ vacante**  
-  Descripción: creación de entidad `Candidatura` y lógica relacional.
-
-- **TICKET 4.2 – Frontend: Selección de vacante al registrar o editar candidato**  
-  Descripción: asignación contextual desde UI.
-
-### 📝 Módulo: Evaluaciones Básicas (Sprint 4)
-
-- **TICKET 5.1 – Backend: Entidad y API de evaluación**  
-  Descripción: estructura de evaluación (texto, puntuación).
-
-- **TICKET 5.2 – Frontend: Formulario de evaluación manual**  
-  Descripción: interfaz desde perfil de candidato.
+| Ticket ID | Título | Tipo | Descripción | Justificación |
+|-----------|--------|------|-------------|----------------|
+| DEV-006 | Crear entidad "Candidate" y "Application" | Backend | Modelo relacional con atributos clave. | Estructura del sistema. |
+| DEV-007 | Endpoint API para registrar candidatura | Backend | `POST /application` con carga de CV. | Entrada principal. |
+| DEV-008 | Parseo básico de CVs en backend | Backend | Parseo PDF/Word a texto. | Experiencia reclutador. |
+| DEV-009 | Visualización de candidaturas en UI | Frontend | Listado por vacante, acceso al CV. | Visibilidad operativa. |
+| DEV-010 | Lógica de asociación oferta–candidatura | Backend | Validación por ID. | Integridad del sistema. |
+| DEV-011 | Validación de duplicados por email y oferta | Backend | Control de integridad. | Previene ruido de datos. |
 
 ---
 
 ## ✅ Punto 4: Estimación del Esfuerzo
 
-### 🎯 Metodología utilizada: Planning Poker con Story Points + Horas
+### 📌 Metodología usada: Planning Poker + Story Points
 
-- Story Points (SP): escala Fibonacci (1, 2, 3, 5, 8, 13)
-- Horas: promedio conservador de 1 SP ≈ 4–6 horas
+| Ticket ID | Título | Story Points (SP) | Est. en horas | Justificación |
+|-----------|--------|-------------------|----------------|----------------|
+| DEV-001 | Crear entidad "JobOpening" | 3 SP | 6 h | Modelo simple. |
+| DEV-002 | API REST para vacantes | 5 SP | 10–12 h | Lógica de negocio. |
+| DEV-003 | Formulario UI de vacantes | 5 SP | 10 h | Validaciones incluidas. |
+| DEV-004 | Conexión frontend–backend | 3 SP | 6 h | Llamadas básicas. |
+| DEV-005 | Control de acceso por rol | 2 SP | 3–4 h | Middleware. |
+| DEV-006 | Modelo Candidate y Application | 5 SP | 10 h | Dos entidades. |
+| DEV-007 | API para registrar candidatura | 5 SP | 10–12 h | Incluye carga de archivos. |
+| DEV-008 | Parseo básico de CVs | 5 SP | 8–10 h | Parsing simple. |
+| DEV-009 | UI de candidaturas por vacante | 3 SP | 6 h | Tabla y acceso al CV. |
+| DEV-010 | Asociación oferta–candidatura | 2 SP | 3–4 h | Validación sencilla. |
+| DEV-011 | Validación de duplicados | 2 SP | 3 h | Control de duplicados. |
 
-### Estimación por Ticket
-
-| Ticket | Descripción | SP | Horas estimadas | Notas |
-|--------|-------------|----|------------------|-------|
-| 1.1 | Backend: Modelo y API de Vacante | 5 | 24 h | |
-| 1.2 | Frontend: Formulario de vacantes | 3 | 12 h | |
-| 2.1 | Backend: Modelo/API de Candidato + CV parseo | 8 | 32 h | |
-| 2.2 | Frontend: Alta de candidato | 5 | 20 h | |
-| 3.1 | Backend: Búsqueda y filtros | 3 | 12 h | |
-| 3.2 | Frontend: Lista/filtros candidatos | 3 | 12 h | |
-| 4.1 | Backend: Asociación candidato-vacante | 5 | 20 h | |
-| 4.2 | Frontend: Asociación en UI | 3 | 12 h | |
-| 5.1 | Backend: Evaluación | 3 | 12 h | |
-| 5.2 | Frontend: Evaluación manual | 2 | 8 h | |
-
-### Totales
-
-- **Total Story Points:** 50 SP  
-- **Total en Horas:** ~164 h  
-- **Duración sugerida (2 devs full-time):** ~2 semanas  
-- **Duración sugerida (1 dev full-time):** ~4 semanas  
-
----
-
-**Fin del documento**
+**Totales:**
+- Total SP: 45 SP
+- Total estimado: ~85–95 h
